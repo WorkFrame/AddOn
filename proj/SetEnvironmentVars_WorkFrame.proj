@@ -14,9 +14,6 @@
    	<Message Importance="High" Text="ValidateSettings ==&gt; Assembly_Root: $(Assembly_Root)" />
    	<Message Importance="High" Text="ValidateSettings ==&gt; AssemblyRoot: $(AssemblyRoot)" />
     
-    <Error Text="ValidateSettings ==&gt; Couldn't find a valid assembly directory."
-    	     Condition="!Exists('$(AssemblyRoot)')" />
-
     <Message Text="ValidateSettings ==&gt; notice: 'Assembly_Root' can be set to a special directory-path through environment or command line, if needed."
     	       Condition="'$(Assembly_Root)' == ''" />
   </Target>
