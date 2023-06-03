@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+
+	<PropertyGroup>
+   	<Conditional_NuGet_Package_Properties_loaded>true</Conditional_NuGet_Package_Properties_loaded>
+  </PropertyGroup>
+
+	<Choose>
+  	<When Condition="'$(TF_BUILD)' == 'true' Or '$(GITHUB_ACTIONS)' == 'true' Or '$(NETETI_CIB)' == 'true'">
+		  <ItemGroup>
+		    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
+    		  <PrivateAssets>all</PrivateAssets>
+		      <IncludeAssets>runtime; build; native; contentfiles; analyzers; buildtransitive</IncludeAssets>
+		    </PackageReference>
+		  </ItemGroup>
+
+		  <ItemGroup>
+		    <None Include="$(ProjectDir)../../AddOn/Package.png">
+    		  <Pack>True</Pack>
+		      <PackagePath>\</PackagePath>
+		    </None>
+		    <None Include="..\README.md">
+		      <Pack>True</Pack>
+		      <PackagePath>\</PackagePath>
+		    </None>
+		  </ItemGroup>
+	  </When>
+	</Choose>
+
+  <PropertyGroup Condition="'$(TF_BUILD)' == 'true' Or '$(GITHUB_ACTIONS)' == 'true' Or '$(NETETI_CIB)' == 'true'">
+    <PackageIcon>Package.png</PackageIcon>
+    <PackageReadmeFile>README.md</PackageReadmeFile>
+    <IncludeSymbols>True</IncludeSymbols>
+    <SymbolPackageFormat>snupkg</SymbolPackageFormat>
+    <GeneratePackageOnBuild>True</GeneratePackageOnBuild>
+  	<PublishRepositoryUrl>true</PublishRepositoryUrl>
+	  <EmbedUntrackedSources>true</EmbedUntrackedSources>
+  </PropertyGroup>
+  
+	<PropertyGroup Condition="'$(TF_BUILD)' == 'true' Or '$(GITHUB_ACTIONS)' == 'true' Or '$(NETETI_CIB)' == 'true'">
+  	<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
+	</PropertyGroup>
+
+</Project>                                                               
