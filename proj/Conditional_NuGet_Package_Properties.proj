@@ -6,7 +6,7 @@
   </PropertyGroup>
 
 	<Choose>
-  	<When Condition="'$(TF_BUILD)' == 'true' Or '$(GITHUB_ACTIONS)' == 'true' Or '$(NETETI_CIB)' == 'true'">
+  	<When Condition="'$(TF_BUILD)' == 'true' Or '$(GITHUB_ACTIONS)' == 'true' Or '$(NETETI_CIB)' == 'true' Or '$(NETETI_CIB)' == 'vsix'">
 		  <ItemGroup>
 		    <PackageReference Include="Microsoft.SourceLink.GitHub" Version="1.1.1">
     		  <PrivateAssets>all</PrivateAssets>
@@ -27,7 +27,7 @@
 	  </When>
 	</Choose>
 
-  <PropertyGroup Condition="'$(TF_BUILD)' == 'true' Or '$(GITHUB_ACTIONS)' == 'true' Or '$(NETETI_CIB)' == 'true'">
+  <PropertyGroup Condition="'$(TF_BUILD)' == 'true' Or '$(GITHUB_ACTIONS)' == 'true' Or '$(NETETI_CIB)' == 'true' Or '$(NETETI_CIB)' == 'vsix'">
     <PackageIcon>Package.png</PackageIcon>
     <PackageReadmeFile>README.md</PackageReadmeFile>
     <IncludeSymbols>True</IncludeSymbols>
@@ -37,7 +37,7 @@
 	  <EmbedUntrackedSources>true</EmbedUntrackedSources>
   </PropertyGroup>
   
-	<PropertyGroup Condition="'$(TF_BUILD)' == 'true' Or '$(GITHUB_ACTIONS)' == 'true' Or '$(NETETI_CIB)' == 'true'">
+	<PropertyGroup Condition="'$(TF_BUILD)' == 'true' Or '$(GITHUB_ACTIONS)' == 'true' Or '$(NETETI_CIB)' == 'true' Or '$(NETETI_CIB)' == 'vsix'">
   	<ContinuousIntegrationBuild>true</ContinuousIntegrationBuild>
 	</PropertyGroup>
 
